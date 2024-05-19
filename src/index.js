@@ -8,13 +8,22 @@ dotenv.config({
 
 connectDB();
 
-/* 
+/*
+import express from "express";
+import mongoose from "mongoose";
+import { DB_NAME } from "./constants.js";
+
 const app = express();
 
 console.log(process.env);
 (async () => {
   try {
-    await mongoose.connect(`${process.env.MONGODB_URI}/${DB_NAME}`);
+    const connectionInstance = await mongoose.connect(
+      `${process.env.MONGODB_URI}/${DB_NAME}`
+    );
+    console.log(
+      `\n MongoDB connected !! DB HOST: ${connectionInstance.connection.host}`
+    );
     app.on("error", (error) => {
       console.log("Error connecting to database", error);
       throw error;
@@ -28,4 +37,5 @@ console.log(process.env);
     throw err;
   }
 })();
+
 */
